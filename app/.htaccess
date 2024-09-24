@@ -1,0 +1,9 @@
+# Pastikan permintaan asset tidak dialihkan
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|jpeg|gif|ico)$ [NC]
+    RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
